@@ -11,12 +11,20 @@ h1 {
   margin: 0;
 }
 
-.navigation {
+.container-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: fit-content;
+  gap: 5vw;
+  margin: 3vh 3vw 5vh 3vw;
+}
+
+/* .navigation {
   background-image: linear-gradient(rgba(253, 136, 40, 0.95), rgba(252, 236, 183, 0.4)),
   url("/Users/fcadiz/Desktop/course_work/FitnessTrackr_FrontEnd/public/images/navigation-image.jpeg");
   background-repeat: no-repeat;
   background-size: 100% auto;
-}
+} */
 
 .Logo {
   padding: 12vh 0;
@@ -50,9 +58,26 @@ nav a:hover {
 }
 
 @keyframes pushUps {
-  from, to { transform: translate3d(0, 0, 0); }
-  10%, 30%, 50%, 70%, 90% { transform: translate3d(0, -10px, 0); }
-  20%, 40%, 60%, 80% { transform: translate3d(0, 5px, 0); }
+
+  from,
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translate3d(0, -10px, 0);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translate3d(0, 5px, 0);
+  }
 }
 
 .pageName {
@@ -85,7 +110,24 @@ nav a:hover {
 }
 
 @keyframes sideToSide {
-  from, to { transform: translate3d(0, 0, 0); }
-  10%, 30%, 50%, 70%, 90% { transform: translate3d(-10px, 0, 0); }
-  20%, 40%, 60%, 80% { transform: translate3d(10px, 0, 0); } 
+
+  from,
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translate3d(10px, 0, 0);
+  }
 }

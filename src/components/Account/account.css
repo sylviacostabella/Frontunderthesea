@@ -1,0 +1,24 @@
+.acount-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    padding: 5vw 15vw;
+    margin-bottom: 10vh;
+}
+
+.user-welcome {
+    text-align: center;
+    color: #333;
+}
+
+.nav-link {
+    padding: 1vw;
+    border: 2px solid #665f5f;
+    color: #333;
+    text-decoration: none;
+    box-shadow: 1px 1px 2px #333;
+}
+
+.nav-link:hover {
+    background-color: rgba(253, 136, 40, 0.2);
+}

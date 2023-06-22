@@ -1,0 +1,29 @@
+.activity-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2vw;
+    border: 3px solid #333;
+    text-align: center;
+    box-shadow: 5px 3px 5px rgb(101, 99, 99);
+}
+
+.activity-card:nth-child(odd) {
+    background-color: rgb(120, 111, 113);
+}
+
+.activity-description {
+    font-style: italic;
+}
+
+.activity-card:hover {
+    background-color: rgba(253, 136, 40, 0.2);
+}
+
+.activity-card .action-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }

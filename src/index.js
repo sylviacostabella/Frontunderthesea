@@ -1,75 +1,32 @@
-export const fetchUserData = async (token) => {
-  try {
-    const response = await fetch('http://fitnesstrac-kr.herokuapp.com/api/users/me', {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
-      }
-    })
-    const result = await response.json()
-    return result
-  } catch (error) {
-    console.log(error)
-  };
-};
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Home, Activities, NewActivity, Login, Register, AuthProvider, Account, NewRoutine, MyRoutines } from "./components";
 
-export const fetchPublicRoutinesFeaturingActivity = async (activityId) => {
-  try {
-    await fetch(`https://fitnesstrac-kr.herokuapp.com/api/activities/${activityId}/routines`, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }) .then(response => response.json())
-    .then(result => {
-      console.log(result)
-      return result
-    })
-  } catch (error) {
-    console.log("Trouble gathering routines that feature activity", error)
-  };
-};
+import 'animate.css/animate.min.css';
+import './index.css'
 
-export const fetchPublicRoutinesByUser = async (username) => {
-  await fetch(`https://fitnesstrac-kr.herokuapp.com/api/users/${username}/routines`, {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  }) .then(response => response.json())
-  .then(result => {
-    console.log(result)
-    return result
-  })
-  .catch(console.error);
-};
+function App() {
+  return (
+    <Router>
+      <AuthProvider>
+        <Routes>
+          <Route path='/' element={<Account />} />
+          <Route path='/account' element={<Account />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/activities/new' element={<NewActivity />} />
+          <Route path='/activities' element={<Activities />} />
+          <Route path='/routines/new' element={<NewRoutine />} />
+          <Route path='/routines/public' element={<MyRoutines showPublicRoutines={true} />} />
+          <Route path='/routines' element={<MyRoutines />} />
+          <Route path='*' element={<Home />} />
+        </Routes>
+      </AuthProvider>
+    </Router>
+  );
+}
 
-export const updateMyRoutine = async (token, routineId) => {
-  const response = await fetch (`http://fitnesstrac-kr.herokuapp.com/api/routines/${routineId}`, {
-    method: "PATCH",
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    },
-    body: JSON.stringify({
-      name: updatedName,
-      goal: updatedGoal
-    })
-  }).then(response = response.json())
-  .then(result => {
-    console.log(result);
-  })
-  .catch(console.error)
-};
-
-export const deleteUserRoutine = async (token, routineId) => {
-  await fetch(`http://fitnesstrac-kr.herokuapp.com/api/routines/${routineId}`, {
-    method: "DELETE",
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    }
-  }).then(response => response.json())
-  .then(result => {
-    console.log(result);
-  })
-  .catch(console.error);
-  };
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(<App tab="home" />);
